@@ -1,0 +1,18 @@
+[{
+  "id": 1,
+  "name": "John Doe",
+  "email": "john@email.com",
+  "phones": [{
+    "number": "4365365432",
+    "type": 1
+    }]
+  }, {
+    "id": 2,
+    "name": "Mario Rossi",
+    "email": "mario@email.com",
+    "phones": [{
+    "number": "452376467",
+    "type": 1
+    }]
+  }
+]

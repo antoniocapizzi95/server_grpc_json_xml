@@ -1,0 +1,15 @@
+syntax = "proto2";
+
+package addressbook;
+service RPCService {
+
+  rpc GetPersonByPhoneNumber(Message) returns (Message) {}
+  rpc EditPeople(stream Message) returns (Message) {}
+  rpc ListPeopleByPhoneType(Message) returns (stream Message) {}
+  rpc GetPeopleById(stream Message) returns (stream Message) {}
+
+}
+message Message {
+  required string format = 1;
+  required string payload = 2;
+}
