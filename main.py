@@ -84,7 +84,7 @@ class RPCServiceServicer(addressbook_pb2_grpc.RPCServiceServicer):
                         yield addressbook_pb2.Message(format="json", payload=json.dumps(item))
                 else:
                     payload = xml_parse(request.payload)["PhoneNumber"]
-                    if phone["kind"] == int(payload["kind"]):
+                    if int(phone["kind"]) == int(payload["kind"]):
                         yield addressbook_pb2.Message(format="xml", payload=xmltodict.unparse({"people": item}))
 
     def GetPeopleById(self, request_iterator, context):
