@@ -44,7 +44,7 @@ class RPCServiceServicer(addressbook_pb2_grpc.RPCServiceServicer):
                 return addressbook_pb2.Message(format="json", payload="{}")
             else:
                 response_object = addressbook_pb2.Message(format="json", payload=json.dumps(person))
-                print("json size: " + str(sys.getsizeof(response_object.SerializeToString())))
+                print("json size: " + str(sys.getsizeof(json.dumps(person))))
                 return response_object
         else:
             person = get_person(self.db, xml_parse(request.payload)["PhoneNumber"])
@@ -52,7 +52,7 @@ class RPCServiceServicer(addressbook_pb2_grpc.RPCServiceServicer):
                 return addressbook_pb2.Message(format="xml", payload=xmltodict.unparse({}))
             else:
                 response_object = addressbook_pb2.Message(format="xml", payload=xmltodict.unparse({"person": person}))
-                print("xml size: " + str(sys.getsizeof(response_object.SerializeToString())))
+                print("xml size: " + str(sys.getsizeof(xmltodict.unparse({"person": person}))))
                 return response_object
 
 
